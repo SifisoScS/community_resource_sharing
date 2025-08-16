@@ -1,0 +1,474 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Ubuntu - Resource Sharing Platform
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="https://unpkg.com/htmx.org@1.9.6">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #4f46e5, #10b981, #3b82f6, #ef4444);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+  </style>
+ </head>
+ <body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+     <div class="flex">
+      <div class="flex-shrink-0 flex items-center">
+       <img alt="Community Share logo - two hands exchanging a package with a heart icon" class="h-8 w-8 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/39508990-467e-42bd-1e92-66fedcb5b660.jpg" width="40"/>
+       <span class="ml-2 text-xl font-bold text-gray-900">
+        Ubuntu
+       </span>
+      </div>
+     </div>
+     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+      <a class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">
+       Home
+      </a>
+      <a class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">
+       Browse
+      </a>
+      <a class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">
+       Post
+      </a>
+      <a class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" href="#">
+       About
+      </a>
+     </div>
+     <div class="hidden sm:ml-6 sm:flex sm:items-center">
+      <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+       Sign In
+      </button>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section with background image -->
+  <div class="relative overflow-hidden">
+   <img alt="Welcoming community gathering in a park with smiling people of diverse backgrounds sharing and helping each other, sunny day with green trees and picnic blankets" class="absolute inset-0 w-full h-full object-cover brightness-75" height="800" src="https://storage.googleapis.com/a1aa/image/921c9eb3-08c2-4539-8f11-2d3d76b5b253.jpg" width="1920"/>
+   <div class="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+     Where Community Feels Like Family
+    </h1>
+    <p class="mt-6 max-w-lg mx-auto text-xl text-indigo-100">
+     Connect with your community to share resources, reduce waste, help each other, and welcome newcomers with stories and support.
+    </p>
+    <div class="mt-10 flex justify-center gap-4 flex-wrap">
+     <button class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium text-lg hover:bg-gray-100">
+      Browse Resources
+     </button>
+     <button class="bg-indigo-600 bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium text-lg hover:bg-opacity-100">
+      Post an Item
+     </button>
+    </div>
+   </div>
+  </div>
+  <!-- How It Works -->
+  <div class="py-12 bg-white">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+     <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+      Community Sharing
+     </h2>
+     <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      A simple way to share with your neighbors
+     </p>
+    </div>
+    <div class="mt-10">
+     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+       <div>
+        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+         <img alt="Step 1 icon showing a user signing up on a tablet" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/1070f97c-7696-4e71-7acf-9e7dffce9604.jpg" width="40"/>
+        </span>
+       </div>
+       <div class="mt-8">
+        <h3 class="text-lg font-medium">
+         <span aria-hidden="true" class="absolute inset-0">
+         </span>
+         Create an Account
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+         Sign up in seconds and verify your local community membership to start sharing.
+        </p>
+       </div>
+      </div>
+      <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+       <div>
+        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+         <img alt="Step 2 icon showing a form to post a resource with a plus button" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/c44dfd0b-558e-441c-0aea-2282a97ee7b0.jpg" width="40"/>
+        </span>
+       </div>
+       <div class="mt-8">
+        <h3 class="text-lg font-medium">
+         <span aria-hidden="true" class="absolute inset-0">
+         </span>
+         List Your Resources
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+         Post items you're willing to share - from tools to food to skills.
+        </p>
+       </div>
+      </div>
+      <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+       <div>
+        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+         <img alt="Step 3 icon showing two people exchanging items with a handshake" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/a4c3cea9-3dd9-4d1e-1a93-7884819a0f41.jpg" width="40"/>
+        </span>
+       </div>
+       <div class="mt-8">
+        <h3 class="text-lg font-medium">
+         <span aria-hidden="true" class="absolute inset-0">
+         </span>
+         Connect &amp; Share
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+         Arrange pickup or delivery and strengthen your community bonds.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Resource Listings -->
+  <div class="py-12 bg-gray-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center mb-12">
+     <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+      Available Resources
+     </h2>
+     <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+      Items shared by your neighbors
+     </p>
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+     <!-- Resource Card 1 -->
+     <div class="resource-card bg-white overflow-hidden shadow rounded-lg transition-all duration-300 ease-in-out">
+      <div class="h-48 bg-gray-200">
+       <img alt="Wooden ladder in good condition leaning against a garage wall" class="w-full h-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/7cb50b01-381c-4a23-8b29-ff031da2e7ef.jpg" width="600"/>
+      </div>
+      <div class="px-4 py-5 sm:p-6">
+       <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Extension Ladder
+       </h3>
+       <div class="mt-4 flex items-center text-sm text-gray-500">
+        <img alt="User profile picture - smiling middle-aged man with glasses" class="flex-shrink-0 mr-3 h-5 w-5 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/42a22bfa-2a00-4346-2d9d-9565766ada90.jpg" width="40"/>
+        James K. (2 miles away)
+       </div>
+       <p class="mt-2 text-sm text-gray-500">
+        24-foot wooden ladder in great condition. Available weekends.
+       </p>
+       <div class="mt-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+         Tools
+        </span>
+       </div>
+       <button class="mt-4 w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none">
+        Request Item
+       </button>
+      </div>
+     </div>
+     <!-- Resource Card 2 -->
+     <div class="resource-card bg-white overflow-hidden shadow rounded-lg transition-all duration-300 ease-in-out">
+      <div class="h-48 bg-gray-200">
+       <img alt="Box of assorted canned foods and dry goods with various labels visible" class="w-full h-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/1734cec8-01e8-4550-c778-bda5c0226297.jpg" width="600"/>
+      </div>
+      <div class="px-4 py-5 sm:p-6">
+       <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Non-perishable Food Items
+       </h3>
+       <div class="mt-4 flex items-center text-sm text-gray-500">
+        <img alt="User profile picture - elderly woman with gray hair smiling" class="flex-shrink-0 mr-3 h-5 w-5 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/6e14309d-4dd1-4887-c0e7-7c6625a54234.jpg" width="40"/>
+        Maria S. (0.5 miles away)
+       </div>
+       <p class="mt-2 text-sm text-gray-500">
+        Various canned goods and dry foods from our food drive surplus.
+       </p>
+       <div class="mt-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+         Food
+        </span>
+       </div>
+       <button class="mt-4 w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none">
+        Request Item
+       </button>
+      </div>
+     </div>
+     <!-- Resource Card 3 -->
+     <div class="resource-card bg-white overflow-hidden shadow rounded-lg transition-all duration-300 ease-in-out">
+      <div class="h-48 bg-gray-200">
+       <img alt="Electric lawn mower on a well-maintained green lawn in sunlight" class="w-full h-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/0aacb379-12fe-408b-a9e8-defcb9cb8160.jpg" width="600"/>
+      </div>
+      <div class="px-4 py-5 sm:p-6">
+       <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Electric Lawn Mower
+       </h3>
+       <div class="mt-4 flex items-center text-sm text-gray-500">
+        <img alt="User profile picture - young man wearing a baseball cap" class="flex-shrink-0 mr-3 h-5 w-5 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/6f2746b1-a202-4e74-b39a-f26c35a94a69.jpg" width="40"/>
+        Tyler M. (1.2 miles away)
+       </div>
+       <p class="mt-2 text-sm text-gray-500">
+        Greenworks electric mower with 2 batteries. Great for small yards.
+       </p>
+       <div class="mt-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+         Garden
+        </span>
+       </div>
+       <button class="mt-4 w-full bg-indigo-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none">
+        Request Item
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Testimonials -->
+  <div class="bg-indigo-700">
+   <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="max-w-4xl mx-auto text-center">
+     <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+      Trusted by community members
+     </h2>
+     <p class="mt-3 text-xl text-indigo-200">
+      See what people are saying about Community Share.
+     </p>
+    </div>
+    <div class="mt-10 sm:mt-16 md:grid md:grid-cols-3 md:gap-8">
+     <div class="flex flex-col p-8 bg-white rounded-lg shadow">
+      <div class="flex-1">
+       <blockquote class="mb-4">
+        <p class="text-lg text-gray-600">
+         "I borrowed a carpet cleaner when we moved in and saved $100 on rentals. This platform helped me meet neighbors too!"
+        </p>
+       </blockquote>
+      </div>
+      <div class="flex items-center">
+       <img alt="Testimonial from Sarah Thompson - young woman with curly brown hair smiling" class="h-10 w-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/d261118c-46a9-4373-9a55-975c626b4339.jpg" width="40"/>
+       <div class="ml-3">
+        <div class="text-base font-medium text-gray-900">
+         Sarah Thompson
+        </div>
+        <div class="text-sm font-medium text-indigo-600">
+         Washington, DC
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="flex flex-col p-8 bg-white rounded-lg shadow mt-8 md:mt-0">
+      <div class="flex-1">
+       <blockquote class="mb-4">
+        <p class="text-lg text-gray-600">
+         "Instead of throwing away extra garden tools, I found them new homes. It's rewarding to help others while reducing waste."
+        </p>
+       </blockquote>
+      </div>
+      <div class="flex items-center">
+       <img alt="Testimonial from Robert Chen - middle-aged Asian man wearing a plaid shirt" class="h-10 w-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/97ca2c6b-805a-4d5c-7bdd-b44ff43d3028.jpg" width="40"/>
+       <div class="ml-3">
+        <div class="text-base font-medium text-gray-900">
+         Robert Chen
+        </div>
+        <div class="text-sm font-medium text-indigo-600">
+         Portland, OR
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="flex flex-col p-8 bg-white rounded-lg shadow mt-8 md:mt-0">
+      <div class="flex-1">
+       <blockquote class="mb-4">
+        <p class="text-lg text-gray-600">
+         "As a single mom, this helped me get baby clothes and toys without spending a fortune. The community is so generous!"
+        </p>
+       </blockquote>
+      </div>
+      <div class="flex items-center">
+       <img alt="Testimonial from Alicia Johnson - young African American woman with braided hair holding a baby" class="h-10 w-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/749daf53-e2c4-4204-5d3e-ee436d7db2aa.jpg" width="40"/>
+       <div class="ml-3">
+        <div class="text-base font-medium text-gray-900">
+         Alicia Johnson
+        </div>
+        <div class="text-sm font-medium text-indigo-600">
+         Chicago, IL
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- CTA Section -->
+  <div class="bg-white">
+   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+     <span class="block">
+      Ready to join the sharing community?
+     </span>
+     <span class="block text-indigo-600">
+      Sign up today - it's free!
+     </span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0 flex-wrap gap-3">
+     <div class="inline-flex rounded-md shadow">
+      <button class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+       Get Started
+      </button>
+     </div>
+     <div class="inline-flex rounded-md shadow">
+      <button class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+       Learn More
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-gray-800">
+   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+     <div>
+      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+       About
+      </h3>
+      <ul class="mt-4 space-y-4">
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Our Mission
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Team
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         FAQ
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+       Resources
+      </h3>
+      <ul class="mt-4 space-y-4">
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Safety Tips
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Community Rules
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Success Stories
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+       Support
+      </h3>
+      <ul class="mt-4 space-y-4">
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Help Center
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Contact Us
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Report Issues
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+       Legal
+      </h3>
+      <ul class="mt-4 space-y-4">
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Privacy Policy
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Terms of Use
+        </a>
+       </li>
+       <li>
+        <a class="text-base text-gray-300 hover:text-white" href="#">
+         Cookie Policy
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="mt-12 border-t border-gray-700 pt-8 flex justify-between flex-wrap gap-4">
+     <p class="text-base text-gray-400">
+      © 2023 Community Share. All rights reserved.
+     </p>
+     <div class="flex space-x-6">
+      <a class="text-gray-400 hover:text-gray-300" href="#">
+       <img alt="Facebook social media icon in white" class="h-6 w-6" height="24" src="https://storage.googleapis.com/a1aa/image/9be18ff5-8479-43fa-062f-8658927324b8.jpg" width="24"/>
+      </a>
+      <a class="text-gray-400 hover:text-gray-300" href="#">
+       <img alt="Twitter social media icon in white" class="h-6 w-6" height="24" src="https://storage.googleapis.com/a1aa/image/701372ec-12d9-4f74-3d9d-d950874242b2.jpg" width="24"/>
+      </a>
+      <a class="text-gray-400 hover:text-gray-300" href="#">
+       <img alt="Instagram social media icon in white" class="h-6 w-6" height="24" src="https://storage.googleapis.com/a1aa/image/688bb480-fa8c-414b-4653-e2cbc5baff1e.jpg" width="24"/>
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <!-- Flask functionality would be added here for a real app -->
+  <script>
+   // Simple client-side functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // This would be replaced with actual Flask endpoints in a real application
+            console.log('Community Share app loaded');
+            
+            // Example: Handle resource requests
+            const requestButtons = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === "Request Item");
+            requestButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('In a real app, this would connect you with the resource owner. For now, please sign up!');
+                });
+            });
+        });
+  </script>
+ </body>
+</html>
