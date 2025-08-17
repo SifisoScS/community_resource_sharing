@@ -111,6 +111,19 @@ def request_resource(resource_id):
 def about():
     return render_template('about.html')
 
+@app.route('/mission_vision')
+def mission_vision():
+    return render_template('mission_vision.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')  # Create a basic contact.html if needed
+
+@app.route('/browse')
+def browse():
+    resources = Resource.query.filter_by(is_active=True).all()
+    return render_template('browse.html', resources=resources)
+
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)

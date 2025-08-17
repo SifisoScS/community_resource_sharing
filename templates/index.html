@@ -1,99 +1,88 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Community Share</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-</head>
-<body class="bg-gray-50">
-    {% extends "base.html" %}
+<!-- Ubuntu/templates/index.html -->
+{% extends "base.html" %}
 
-    {% block content %}
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden">
-        <img alt="Welcoming community gathering in a park with smiling people of diverse backgrounds sharing and helping each other, sunny day with green trees and picnic blankets" class="absolute inset-0 w-full h-full object-cover brightness-75" height="800" src="https://storage.googleapis.com/a1aa/image/921c9eb3-08c2-4539-8f11-2d3d76b5b253.jpg" width="1920"/>
-        <div class="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Where Community Feels Like Family
-            </h1>
-            <p class="mt-6 max-w-lg mx-auto text-xl text-indigo-100">
-                Connect with your community to share resources, reduce waste, help each other, and welcome newcomers with stories and support.
-            </p>
-            <div class="mt-10 flex justify-center gap-4 flex-wrap">
-                <button class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium text-lg hover:bg-gray-100" onclick="window.location.href='{{ url_for('index') }}'">
-                    Browse Resources
-                </button>
-                <button class="bg-indigo-600 bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium text-lg hover:bg-opacity-100" onclick="window.location.href='{{ url_for('post_resource') }}'">
-                    Post an Item
-                </button>
-            </div>
+{% block content %}
+<div class="relative max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center" style="background-image: url('https://storage.googleapis.com/a1aa/image/4a10e53e-5302-434d-078f-58c6cdbe263e.jpg'); background-size: cover; background-position: center;">
+    <div class="bg-black bg-opacity-50 p-6 rounded-lg">
+        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Where Community Feels Like Family
+        </h1>
+        <p class="mt-6 max-w-lg mx-auto text-xl text-indigo-100">
+            Connect with your community to share resources, reduce waste, help each other, and welcome newcomers with stories and support.
+        </p>
+        <div class="mt-10 flex justify-center gap-4 flex-wrap">
+            <button class="hero-button bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium text-lg hover:bg-gray-100" onclick="window.location.href='{{ url_for('browse') }}'">
+                Browse Resources
+            </button>
+            <button class="hero-button bg-indigo-600 bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium text-lg hover:bg-opacity-100" onclick="window.location.href='{{ url_for('post_resource') }}'">
+                Post an Item
+            </button>
         </div>
     </div>
+</div>
 
-    <!-- How It Works -->
-    <div class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">
-                    Community Sharing
-                </h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    A simple way to share with your neighbors
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    “We are not rich by what we own, but by what we share. Here, your neighbor’s hand is your own, and no one walks alone.”
-                </p>
-                <p class="mt-4 text-lg text-gray-500">
-                    - Sifiso Cyprian Shezi, Ubuntu Founder
-                </p>
-            </div>
-            <div class="mt-10">
-                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
-                        <div>
-                            <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
-                                <img alt="Step 1 icon showing a user signing up on a tablet" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/1070f97c-7696-4e71-7acf-9e7dffce9604.jpg" width="40"/>
-                            </span>
-                        </div>
-                        <div class="mt-8">
-                            <h3 class="text-lg font-medium">
-                                Create an Account
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500">
-                                Sign up in seconds and verify your local community membership to start sharing.
-                            </p>
-                        </div>
+<!-- How It Works -->
+<div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+            <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+                Community Sharing
+            </h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                A simple way to share with your neighbors
+            </p>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                “We are not rich by what we own, but by what we share. Here, your neighbor’s hand is your own, and no one walks alone.”
+            </p>
+            <p class="mt-4 text-lg text-gray-500">
+                - Sifiso Cyprian Shezi, Ubuntu Founder
+            </p>
+        </div>
+        <div class="mt-10">
+            <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+                    <div>
+                        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+                            <img alt="Step 1 icon showing a user signing up on a tablet" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/1070f97c-7696-4e71-7acf-9e7dffce9604.jpg" width="40"/>
+                        </span>
                     </div>
-                    <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
-                        <div>
-                            <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
-                                <img alt="Step 2 icon showing a form to post a resource with a plus button" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/c44dfd0b-558e-441c-0aea-2282a97ee7b0.jpg" width="40"/>
-                            </span>
-                        </div>
-                        <div class="mt-8">
-                            <h3 class="text-lg font-medium">
-                                List Your Resources
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500">
-                                Post items you're willing to share - from tools to food to skills.
-                            </p>
-                        </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            Create an Account
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Sign up in seconds and verify your local community membership to start sharing.
+                        </p>
                     </div>
-                    <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
-                        <div>
-                            <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
-                                <img alt="Step 3 icon showing two people exchanging items with a handshake" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/a4c3cea9-3dd9-4d1e-1a93-7884819a0f41.jpg" width="40"/>
-                            </span>
-                        </div>
-                        <div class="mt-8">
-                            <h3 class="text-lg font-medium">
-                                Connect & Share
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500">
-                                Arrange pickup or delivery and strengthen your community bonds.
-                            </p>
-                        </div>
+                </div>
+                <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+                    <div>
+                        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+                            <img alt="Step 2 icon showing a form to post a resource with a plus button" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/c44dfd0b-558e-441c-0aea-2282a97ee7b0.jpg" width="40"/>
+                        </span>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            List Your Resources
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Post items you're willing to share - from tools to food to skills.
+                        </p>
+                    </div>
+                </div>
+                <div class="group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:border-indigo-300 transition-colors">
+                    <div>
+                        <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
+                            <img alt="Step 3 icon showing two people exchanging items with a handshake" class="h-6 w-6" height="40" src="https://storage.googleapis.com/a1aa/image/a4c3cea9-3dd9-4d1e-1a93-7884819a0f41.jpg" width="40"/>
+                        </span>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium">
+                            Connect & Share
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Arrange pickup or delivery and strengthen your community bonds.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -243,6 +232,4 @@
 
     <!-- Response Message for HTMX -->
     <div id="response-message"></div>
-    {% endblock %}
-</body>
-</html>
+{% endblock %}

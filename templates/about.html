@@ -2,10 +2,89 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-extrabold text-gray-900">About Ubuntu</h2>
-    <p class="mt-4 text-lg text-gray-600">
-        Ubuntu is a community sharing platform designed to connect neighbors, reduce waste, and welcome newcomers. Share resources, organize events, and build stronger community bonds.
-    </p>
-</div>
+<main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-green-900 mb-8 text-center">About Ubuntu</h2>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+            <h3 class="text-3xl font-semibold text-green-600 flex items-center space-x-3">
+                <span class="text-4xl">🌍</span>
+                <span>About Ubuntu: The Spirit of Sharing</span>
+            </h3>
+            <blockquote class="mt-6 italic text-gray-600 border-l-8 border-green-200 pl-6 text-xl max-w-xl">
+                <p>“I am because we are.”</p>
+            </blockquote>
+            <p class="mt-6 text-lg text-gray-700 max-w-xl leading-relaxed">
+                I was raised in a world where sharing was not an act of charity, but an act of living. In the village, no child was left unfed because every child belonged to all of us. Tools passed from hand to hand, wisdom from mouth to ear, strength from neighbor to neighbor. That was Ubuntu — not philosophy, but breath, heartbeat, survival.
+            </p>
+            <p class="mt-4 text-lg text-gray-700 max-w-xl leading-relaxed">
+                This platform is the digital echo of that ancient rhythm. It is not just about lending a lawn mower, a book, or a shirt. It is about lending a part of yourself — your care, your presence, your humanity.
+            </p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-lg">
+            <img alt="Community sharing in an African village with people helping each other" class="w-full h-auto object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4a10e53e-5302-434d-078f-58c6cdbe263e.jpg" width="600"/>
+        </div>
+    </section>
+
+    <section class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg">
+            <img alt="Helping hands reaching out in solidarity" class="w-full h-auto object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9dbe5225-7ac4-4105-6073-d474cf99fe2b.jpg" width="600"/>
+        </div>
+        <div class="order-1 md:order-2">
+            <h3 class="text-3xl font-semibold text-green-600 flex items-center space-x-3">
+                <span class="text-4xl">✨</span>
+                <span>Why I Built This</span>
+            </h3>
+            <p class="mt-6 text-lg text-gray-700 max-w-xl leading-relaxed">
+                Too many of our people still live in isolation, even as abundance sits next door. Too many feel unseen when they are surrounded by community. I could not accept that.
+            </p>
+            <p class="mt-4 text-lg text-gray-700 max-w-xl leading-relaxed">
+                So here we gather — to give without condition, to ask without shame, and to build trust with simple acts. A ladder. A warm plate. A weekend spent helping. A word of wisdom shared. Each gesture, no matter how small, strengthens the bridge between us.
+            </p>
+        </div>
+    </section>
+
+    <section class="mt-16 max-w-4xl mx-auto mb-16">
+        <h3 class="text-3xl font-semibold text-green-600 flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-4xl">🤝</span>
+            <span>Ubuntu in Practice</span>
+        </h3>
+        <ul class="mt-6 space-y-5 text-lg text-gray-700 list-disc list-inside max-w-xl mx-auto md:mx-0">
+            <li>A newcomer welcomed not as a stranger, but as kin.</li>
+            <li>A family in need embraced with dignity, not pity.</li>
+            <li>A neighbor’s gift — whether time, food, or tools — becoming the thread that binds us closer.</li>
+        </ul>
+        <p class="mt-6 text-lg text-gray-700 max-w-xl leading-relaxed mx-auto md:mx-0">
+            This is a digital village, born in Africa, rooted in solidarity, and open to every hand willing to give or receive.
+        </p>
+    </section>
+
+    <section class="mt-16 max-w-4xl mx-auto mb-16">
+        <h3 class="text-3xl font-semibold text-green-600 flex items-center space-x-3 justify-center md:justify-start">
+            <span class="text-4xl">🌟</span>
+            <span>Our Promise</span>
+        </h3>
+        <ul class="mt-6 space-y-5 text-lg text-gray-700 list-disc list-inside max-w-xl mx-auto md:mx-0">
+            <li>No exploitation. Here we give, not sell.</li>
+            <li>No strangers. Every face you see is connected to your own.</li>
+            <li>No waste. What one lacks, another provides.</li>
+        </ul>
+        <p class="mt-6 text-lg text-gray-700 max-w-xl leading-relaxed mx-auto md:mx-0">
+            Welcome home. You belong here.
+        </p>
+    </section>
+
+    <section class="mt-20 max-w-3xl mx-auto mb-16">
+        <blockquote class="italic text-gray-600 border-l-8 border-green-200 pl-6 text-center text-xl md:text-left">
+            <p>“If you have much, give from your wealth. If you have little, give from your heart.” — African Proverb</p>
+        </blockquote>
+    </section>
+
+    <section class="mt-10 text-center max-w-3xl mx-auto">
+        <h3 class="text-2xl font-semibold text-green-600 mb-4">🌱 Join Our Community</h3>
+        <p class="mb-6 text-lg text-gray-700">Become part of the Ubuntu movement today!</p>
+        <a href="{{ url_for('register') }}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition">
+            <i class="fas fa-user-plus mr-2"></i> Join Now
+        </a>
+    </section>
+</main>
 {% endblock %}
