@@ -1,0 +1,28 @@
+<!-- Ubuntu/templates/contact.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-5xl mx-auto px-6 py-12 sm:py-16">
+    <h2 class="text-4xl font-bold text-green-900 mb-8 text-center">Contact Us</h2>
+    <p class="text-lg text-green-800 text-center max-w-3xl mx-auto">We’d love to hear from you! Please reach out with any questions or support needs.</p>
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="bg-green-900 text-green-200 py-8 mt-12">
+   <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+    <p class="text-sm" id="copyright">© 2025 Ubuntu Resource Sharing Platform. All rights reserved.</p>
+    <div class="flex space-x-6 text-lg">
+     <a aria-label="Facebook" class="hover:text-white transition" href="{{ url_for('index') }}"><i class="fab fa-facebook-f"></i></a>
+     <a aria-label="Twitter" class="hover:text-white transition" href="{{ url_for('index') }}"><i class="fab fa-twitter"></i></a>
+     <a aria-label="Instagram" class="hover:text-white transition" href="{{ url_for('index') }}"><i class="fab fa-instagram"></i></a>
+     <a aria-label="LinkedIn" class="hover:text-white transition" href="{{ url_for('index') }}"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+   </div>
+</footer>
+<script>
+   const copyright = document.getElementById('copyright');
+   const currentYear = new Date().getFullYear();
+   copyright.textContent = `© ${currentYear} Ubuntu Resource Sharing Platform. All rights reserved.`;
+</script>
+{% endblock %}

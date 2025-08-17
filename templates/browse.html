@@ -1,0 +1,40 @@
+<!-- Ubuntu/templates/browse.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-green-900 mb-8 text-center">Browse Resources</h2>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {% for resource in resources %}
+        <div class="bg-white overflow-hidden shadow rounded-lg transition-all duration-300 ease-in-out">
+            <div class="h-48 bg-gray-200">
+                <img src="{{ resource.image_url or 'https://storage.googleapis.com/a1aa/image/default.jpg' }}" class="w-full h-full object-cover" alt="{{ resource.title }}" height="400" width="600"/>
+            </div>
+            <div class="px-4 py-5 sm:p-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    {{ resource.title }}
+                </h3>
+                <div class="mt-4 flex items-center text-sm text-gray-500">
+                    <img src="{{ resource.owner.image_url or 'https://storage.googleapis.com/a1aa/image/default_user.jpg' }}" class="flex-shrink-0 mr-3 h-5 w-5 rounded-full" alt="{{ resource.owner.username }} profile" height="40" width="40"/>
+                    {{ resource.owner.username }} ({{ resource.location }})
+                </div>
+                <p class="mt-2 text-sm text-gray-500">
+                    {{ resource.description }}
+                </p>
+                <div class="mt-4">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        {{ resource.category.name }}
+                    </span>
+                </div>
+                <button class="mt-4 w-full bg-green-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-green-700 focus:outline-none" hx-post="{{ url_for('request_resource', resource_id=resource.id) }}" hx-target="#response-message" hx-swap="innerHTML">
+                    Request Item
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if not resources %}
+        <p class="text-center text-gray-500 mt-8">No resources available at the moment. Check back later or post your own!</p>
+    {% endif %}
+</main>
+{% endblock %}
