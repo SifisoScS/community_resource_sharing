@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-green-900 mb-8 text-center">Shared Skills Marketplace</h2>
+    {% if 'user_id' not in session %}
+        <p class="text-center text-red-500 mb-6">Please <a href="{{ url_for('login') }}" class="underline">log in</a> to offer or request skills.</p>
+    {% else %}
+        <form action="{{ url_for('post_skill') }}" method="POST" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="skill_title" class="block text-lg font-semibold text-green-800">Skill Title</label>
+                <input type="text" id="skill_title" name="skill_title" required class="w-full mt-2 p-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="e.g., Plumbing Assistance">
+            </div>
+            <div class="mb-4">
+                <label for="skill_description" class="block text-lg font-semibold text-green-800">Description</label>
+                <textarea id="skill_description" name="skill_description" required class="w-full mt-2 p-2 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" rows="4" placeholder="e.g., Available for minor repairs, 2 hours/week"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">Offer Skill</button>
+        </form>
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {% for skill in skills %}
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">{{ skill.title }}</h3>
+                    <p class="mt-2 text-sm text-gray-500">{{ skill.description }}</p>
+                    <button class="mt-4 w-full bg-green-600 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-green-700">Request</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</main>
+{% endblock %}
