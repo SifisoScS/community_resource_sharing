@@ -47,6 +47,12 @@
     </header>
 
     <main class="flex-grow">
+        {% if 'user_id' in session and not session.get('is_verified', False) %}
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                <p class="font-bold">Verify Your Identity</p>
+                <p>Please <a href="{{ url_for('verify_identity') }}" class="underline">verify your identity</a> to enhance trust and unlock full features.</p>
+            </div>
+        {% endif %}
         {% block content %}{% endblock %}
     </main>
 
@@ -61,6 +67,16 @@
             </div>
         </div>
     </footer>
+
+    {% if 'user_id' in session %}
+        <form action="{{ url_for('set_language') }}" method="POST" class="absolute top-4 right-4">
+            <select name="language" onchange="this.form.submit()" class="bg-green-900 text-white p-2 rounded">
+                <option value="en" {% if session.get('language') == 'en' %}selected{% endif %}>English</option>
+                <option value="sw" {% if session.get('language') == 'sw' %}selected{% endif %}>Swahili</option>
+                <option value="zu" {% if session.get('language') == 'zu' %}selected{% endif %}>Zulu</option>
+            </select>
+        </form>
+    {% endif %}
 
     <script>
         const menuBtn = document.getElementById('menu-btn');
